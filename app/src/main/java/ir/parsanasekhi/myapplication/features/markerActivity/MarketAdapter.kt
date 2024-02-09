@@ -25,14 +25,17 @@ class MarketAdapter(
 
         fun bindViews(coinData: CoinsData.Data) {
 
-            binding.txtCoinName.text = coinData.coinInfo.fullName
-            binding.txtPrice.text = "$" + coinData.rAW.uSD.pRICE
+            if (coinData.rAW != null && coinData.dISPLAY != null) {
 
-            showMarketCap(coinData)
-            showChange(coinData)
-            showImage(coinData)
+                binding.txtCoinName.text = coinData.coinInfo.fullName
+                binding.txtPrice.text = "$" + coinData.rAW.uSD.pRICE
 
-            onItemClicked(coinData)
+                showMarketCap(coinData)
+                showChange(coinData)
+                showImage(coinData)
+
+                onItemClicked(coinData)
+            }
 
         }
 
